@@ -4,8 +4,8 @@
 set -e # fail fast
 
 # parse params
-#BUILD_DIR=$1
-BUILD_DIR="/home/vcap/app"
+BUILD_DIR=$1
+#BUILD_DIR=$1  ##"/home/vcap/app"
 CACHE_DIR=$2
 BUILDPACK_DIR=$(cd $(dirname $0)/..; pwd)
 
