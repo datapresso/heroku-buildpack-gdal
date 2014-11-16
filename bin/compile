@@ -35,8 +35,10 @@ function vendor() {
 }
 
 echo "-----> Vendoring binaries"
-vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/gdal-1.11.1-1.tar.gz" "$BUILD_DIR/vendor/gdal"
-vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/proj-4.8.0-1.tar.gz"  "$BUILD_DIR/vendor/proj"
+##vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/gdal-1.11.1-1.tar.gz" "$BUILD_DIR/vendor/gdal"
+##vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/proj-4.8.0-1.tar.gz"  "$BUILD_DIR/vendor/proj"
+vendor "http://forever.codeforamerica.org/heroku-pygeo/gdal-1.11.1-heroku.tar.gz" "$BUILD_DIR/vendor/gdal"
+vendor "http://download.osgeo.org/proj/proj-4.8.0.tar.gz"  "$BUILD_DIR/vendor/proj"
 
 echo "-----> Configuring build environment"
 
