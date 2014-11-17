@@ -4,8 +4,8 @@
 set -e # fail fast
 
 # parse params
-#BUILD_DIR=$1
-BUILD_DIR=/home/vcap/app
+BUILD_DIR=$1
+#BUILD_DIR=/home/vcap/app
 CACHE_DIR=$2
 BUILDPACK_DIR=$(cd $(dirname $0)/..; pwd)
 
@@ -38,10 +38,10 @@ function vendor() {
 }
 
 echo "-----> Vendoring binaries"
-##vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/gdal-1.11.1-1.tar.gz" "$BUILD_DIR/vendor/gdal"
-##vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/proj-4.8.0-1.tar.gz"  "$BUILD_DIR/vendor/proj"
-vendor "http://forever.codeforamerica.org/heroku-pygeo/gdal-1.11.1-heroku.tar.gz" "$BUILD_DIR/gdal"
-vendor "http://download.osgeo.org/proj/proj-4.8.0.tar.gz" "$BUILD_DIR/proj"
+vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/gdal-1.11.1-1.tar.gz" "$BUILD_DIR/vendor/gdal"
+vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/proj-4.8.0-1.tar.gz"  "$BUILD_DIR/vendor/proj"
+#vendor "http://forever.codeforamerica.org/heroku-pygeo/gdal-1.11.1-heroku.tar.gz" "$BUILD_DIR/vendor/gdal"
+#vendor "http://download.osgeo.org/proj/proj-4.8.0.tar.gz" "$BUILD_DIR/vendor/proj"
 
 echo "-----> Configuring build environment"
 
@@ -52,7 +52,7 @@ export LIBRARY_PATH="\$LIBRARY_PATH:$LIBRARY_PATH"
 export PKG_CONFIG_PATH="\$PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
 export CPPPATH="\$CPPPATH:$CPPPATH"
 export CPATH="\$CPATH:$CPATH"
-export GDAL_DATA="$BUILD_DIR/share/gdal"
+export GDAL_DATA="$BUILD_DIR/vendor/gdal/share/gdal"
 EOF
 
 echo "-----> Building runtime environment"
