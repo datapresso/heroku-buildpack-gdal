@@ -7,7 +7,6 @@ set -e # fail fast
 #BUILD_DIR=$1
 BUILD_DIR="//home//vcap//app"
 VENDOR_DIR="$BUILD_DIR/vendor"
-
 CACHE_DIR=$2
 BUILDPACK_DIR=$(cd $(dirname $0)/..; pwd)
 
@@ -39,7 +38,11 @@ function vendor() {
 
 echo "-----> Vendoring binaries"
 echo $VENDOR_DIR
+<<<<<<< HEAD
 echo $PATH
+=======
+echo $CACHE_DIR
+>>>>>>> refs/remotes/origin/master
 #vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/gdal-1.11.1-1.tar.gz" "$BUILD_DIR/vendor/gdal"
 #vendor "https://s3.amazonaws.com/mojodna-heroku/$STACK/proj-4.8.0-1.tar.gz"  "$BUILD_DIR/vendor/proj"
 vendor "http://forever.codeforamerica.org/heroku-pygeo/gdal-1.11.1-heroku.tar.gz" "$VENDOR_DIR/gdal"
