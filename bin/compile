@@ -4,10 +4,11 @@
 set -e # fail fast
 
 # parse params
-BUILD_DIR=$1
-#BUILD_DIR=/home/vcap/app
+#BUILD_DIR=$1
+BUILD_DIR=/home/vcap/app
 VENDOR_DIR="$BUILD_DIR/vendor"
-CACHE_DIR=$2
+#CACHE_DIR=$2
+CACHE_DIR=/tmp
 BUILDPACK_DIR=$(cd $(dirname $0)/..; pwd)
 
 function indent() {
@@ -21,6 +22,8 @@ function indent() {
 function vendor() {
   binary="$1"
   path="$2"
+  echo "xxxxxxxxxxxxxxxxxxxxxxxxx")
+  echo $1
   echo $path
   echo "Fetching $binary" | indent
   mkdir -p $path
