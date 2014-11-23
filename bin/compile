@@ -22,7 +22,7 @@ function indent() {
 function vendor() {
   binary="$1"
   path="$2"
-  echo "xxxxxxxxxxxxxxxxxxxxxxxxx")
+  echo "xxxxxxxxxxxxxxxxxxxxxxxxx"
   echo $1
   echo $path
   echo "Fetching $binary" | indent
